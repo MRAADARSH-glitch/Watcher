@@ -1,0 +1,19 @@
+{% extends "layout.html" %}{% block body %}
+<h2>Study tracker</h2>
+<div class="card center">
+  <div class="label">Time studying (looking at screen)</div>
+  <div id="focus" class="big">00:00:00</div>
+  <div id="state" class="label">Not tracking</div>
+  <button id="toggle">Start tracking</button>
+</div>
+<div class="grid">
+  <div class="card center"><div class="label">Distractions</div><div id="dist" class="mid">0</div></div>
+  <div class="card center"><div class="label">Away total</div><div id="away" class="mid">00:00</div></div>
+  <div class="card center"><div class="label">Next break in</div><div id="next" class="mid">--:--</div></div>
+</div>
+<div id="cambox" hidden>
+  <div class="camhead"><span>Camera</span><button id="popout" title="Open in a separate window">Pop out</button></div>
+  <img id="cam" alt="Camera preview">
+</div>
+<script src="/static/script.js"></script>
+{% endblock %}

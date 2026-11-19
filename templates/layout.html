@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FocusWatch</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <nav>
+    <b>FocusWatch</b>
+    {% if session.user_id %}
+      <a href="/">Track</a><a href="/history">History</a><a href="/settings">Settings</a>
+      <span class="right">{{ session.username }} · <a href="/logout">Log out</a></span>
+    {% else %}
+      <span class="right"><a href="/login">Log in</a><a href="/register">Register</a></span>
+    {% endif %}
+  </nav>
+  <main>
+    {% for m in get_flashed_messages() %}<div class="flash">{{ m }}</div>{% endfor %}
+    {% block body %}{% endblock %}
+  </main>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{% extends "layout.html" %}{% block body %}
+<h2>Register</h2>
+<form method="post" class="card">
+  <input name="username" placeholder="Username" autofocus required>
+  <input name="password" type="password" placeholder="Password" required>
+  <input name="confirm" type="password" placeholder="Confirm password" required>
+  <button>Create account</button>
+</form>{% endblock %}

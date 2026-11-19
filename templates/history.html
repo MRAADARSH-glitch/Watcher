@@ -1,0 +1,11 @@
+{% extends "layout.html" %}{% block body %}
+<h2>History</h2>
+<p>Total focused time: <b>{{ total | hms }}</b> across {{ rows|length }} sessions.</p>
+<table>
+  <tr><th>Started</th><th>Session length</th><th>Focused</th><th>Away</th><th>Distractions</th><th>Breaks</th><th>Focus %</th></tr>
+  {% for r in rows %}
+  <tr><td>{{ r.started }}</td><td>{{ r.duration | hms }}</td><td>{{ r.focus | hms }}</td>
+      <td>{{ r.away | hms }}</td><td>{{ r.distractions }}</td><td>{{ r.breaks }}</td>
+      <td>{{ (100 * r.focus / (r.focus + r.away)) | round | int if (r.focus + r.away) else 0 }}%</td></tr>
+  {% else %}<tr><td colspan="7">No sessions yet.</td></tr>{% endfor %}
+</table>{% endblock %}
